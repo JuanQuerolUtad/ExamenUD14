@@ -1,0 +1,149 @@
+package zoologico;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.Scanner;
+
+public class ZoologicoMain {
+	public static Scanner sc = new Scanner(System.in);
+	public static void main(String[] args) {
+		Zoo zoo1 = new Zoo();
+		ArrayList<Animales> animales = new ArrayList<>();
+		ArrayList<EmpleadoZoo> empleados = new ArrayList<>();
+		try {
+			menu(animales, empleados);
+		} catch (CuidadorExistenteException e) {
+			System.out.println(e.getMessage());
+		}
+		
+	}
+	public static void imprimirMenu() {
+		System.out.println("Menu Zoologico");
+		System.out.println("1. Agregar y eliminar animales del zoológico.");
+		System.out.println("2. Agregar y eliminar hábitats del zoológico.");
+		System.out.println("3. Agregar y eliminar cuidadores del zoológico.");
+		System.out.println("4. Asignar animales a hábitats específicos.");
+		System.out.println("5. Asignar cuidadores a animales específicos.");
+		System.out.println("6. Mostrar información detallada de cada animal, hábitat y cuidador.");
+		System.out.println("7. Mostrar los animales del zoo ordenados por edad.");
+		System.out.println("8. salir");
+	}
+	public static void menu(ArrayList<Animales> animales, ArrayList<EmpleadoZoo>empleado) {
+		int opcion = 0;
+		while(opcion == 8) {
+			imprimirMenu();
+			System.out.println("elige una opcion (1-8)");
+			opcion = sc.nextInt();
+			if (opcion==1) {
+				
+			}else if(opcion ==2) {
+				
+			}else if(opcion ==3) {
+				
+			}else if(opcion ==4) {
+				
+			}else if(opcion ==5) {
+				
+			}else if(opcion ==6) {
+				
+			}else if(opcion ==7) {
+				
+			}else if(opcion ==8) {
+				System.out.println("Terminando programa");
+			}else {
+				System.out.println("Esa opcion no existe");
+			}
+		}
+		
+	}
+	
+	public static void agregaAnimal(ArrayList<Animales>animales, ArrayList<EmpleadoZoo>empleado)throws CuidadorExistenteException {
+		System.out.println("Que tipo de animal es (mamifero, reptil, ave)");
+		String tipo=sc.nextLine();
+		if (tipo.equalsIgnoreCase("mamifero")) {
+			System.out.println("Introduzca el nombre del animal");
+			String nombre = sc.nextLine();
+			System.out.println("Introduzca el genero del animal");
+			String genero = sc.nextLine();
+			System.out.println("Introduzca la especie del animal");
+			String especie = sc.nextLine();
+			System.out.println("Introduzca la edad del animal");
+			int edad = sc.nextInt();
+			
+			System.out.println("escribe el desplazamiento(tierra, mar, aire)");
+			String desplazar = sc.nextLine();
+			if (desplazar.equalsIgnoreCase("tierra")) {
+				Desplazamiento desplazamiento = Desplazamiento.TIERRA;
+			}else if(desplazar.equalsIgnoreCase("mar")){
+				Desplazamiento desplazamiento = Desplazamiento.MAR;
+			}else if(desplazar.equalsIgnoreCase("aire")){
+				Desplazamiento desplazamiento = Desplazamiento.AIRE;
+			}else {
+				System.out.println("no existe ese desplazamiento");
+				Desplazamiento desplazamiento = Desplazamiento.TIERRA;
+			}
+			System.out.println("Elige un cuidador");
+			MostrarEmpleado(empleado);
+			String empleados =sc.nextLine();
+			for (int i = 0; i < empleado.size(); i++) {
+				
+				if (empleado.get(i).getNombre().equalsIgnoreCase(empleados)) {
+					EmpleadoZoo e = empleado.get(i);
+					}
+				else {
+					CuidadorExistenteException e = new CuidadorExistenteException("no existe ese empleado");
+					throw e;
+				}
+					
+			}
+			
+			
+		}else if (tipo.equalsIgnoreCase("reptil")) {
+			
+		}else if (tipo.equalsIgnoreCase("ave")) {
+			
+		}else {
+			System.out.println("no existe ese tipo");
+		}
+	}
+	public static void agregarEmpleado(ArrayList<EmpleadoZoo>empleado) {
+		System.out.println("Escribe el nombre");
+		String nombre=sc.nextLine();
+		System.out.println("Escribe los apellidos");
+		String apellidos=sc.nextLine();
+		System.out.println("Escribe el salario");
+		double salario=sc.nextDouble();
+		empleado.add(new EmpleadoZoo(nombre, apellidos, salario));
+	}
+	public static void ModificaAnimales(ArrayList<Animales> animales, ArrayList<EmpleadoZoo>empleado){
+		int opcion2=0;
+		while (opcion2!=1 ||opcion2!=2) {
+			System.out.println("elige etre 1. agregar animal o 2. eliminar animal");
+			if (opcion2==1) {
+				
+			}else if (opcion2==2) {
+				for (int i = 0; i < animales.size(); i++) {
+					System.out.println(animales.get(i).toString());
+				}
+				System.out.println("Escribe el nombre del animal que quieras quitar");
+				String nombre= sc.nextLine();
+				for (int i = 0; i < animales.size(); i++) {
+					if (nombre.equalsIgnoreCase(animales.get(i).getNombre())) {
+						animales.remove(i);
+					}
+				}
+				
+				
+			}else {
+				System.out.println("no existe esa opcion");
+			}
+			
+		}
+	}
+	public static void MostrarEmpleado(ArrayList<EmpleadoZoo> empleado) {
+			for (int i = 0; i < empleado.size(); i++) {
+				System.out.println(empleado.get(i).toString());
+			}
+	}
+	
+}

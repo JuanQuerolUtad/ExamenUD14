@@ -1,0 +1,20 @@
+package zoologico;
+
+public class EmpleadoZoo implements Cuidador{
+	private String nombre;
+	private String apellidos;
+	private String salario;
+	
+	public EmpleadoZoo(String nombre, String apellidos, String salario) {
+		this.nombre = nombre;
+		this.apellidos = apellidos;
+		this.salario = salario;
+	}
+
+	@Override
+	public void Alimentar() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

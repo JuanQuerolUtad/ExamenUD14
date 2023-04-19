@@ -1,0 +1,11 @@
+package zoologico;
+
+public class Reptiles extends Animales{
+	private String color;
+
+	public Reptiles(String nombre, String genero, String especie, int edad, String color) {
+		super(nombre, genero, especie, edad);
+		this.color = color;
+	}
+	
+}

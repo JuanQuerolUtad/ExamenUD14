@@ -1,0 +1,8 @@
+package zoologico;
+
+public class Animales {
+	protected String nombre;
+	protected String genero;
+	protected String especie;
+	protected int edad;
+}

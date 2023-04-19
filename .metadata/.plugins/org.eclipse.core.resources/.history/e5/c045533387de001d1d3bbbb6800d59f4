@@ -1,0 +1,12 @@
+package zoologico;
+
+public class Aves extends Animales{
+	private double longitudPico;
+	private boolean rapaces;
+	public Aves(String nombre, String genero, String especie, int edad, double longitudPico, boolean rapaces) {
+		super(nombre, genero, especie, edad);
+		this.longitudPico = longitudPico;
+		this.rapaces = rapaces;
+	}
+	
+}

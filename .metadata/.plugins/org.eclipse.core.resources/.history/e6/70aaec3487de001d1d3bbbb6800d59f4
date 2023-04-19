@@ -1,0 +1,12 @@
+package zoologico;
+
+public class Mamiferos extends Animales{
+	private Desplazamiento desplazamiento;
+
+	public Mamiferos(String nombre, String genero, String especie, int edad, Desplazamiento desplazamiento) {
+		super(nombre, genero, especie, edad);
+		this.desplazamiento = desplazamiento;
+	}
+	
+	
+}

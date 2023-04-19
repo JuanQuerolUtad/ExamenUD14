@@ -1,0 +1,16 @@
+package zoologico;
+
+public class Animales {
+	protected String nombre;
+	protected String genero;
+	protected String especie;
+	protected int edad;
+	public Animales(String nombre, String genero, String especie, int edad) {
+		this.nombre = nombre;
+		this.genero = genero;
+		this.especie = especie;
+		this.edad = edad;
+	}
+	
+	
+}
